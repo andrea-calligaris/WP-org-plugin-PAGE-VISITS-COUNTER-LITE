@@ -1,8 +1,11 @@
 "use strict";
 
 /**
-* AJAX - DELETE PAGE from dashboard widget - page list
-* DESC: Execute delete page procedure on delete button click.
+* AJAX
+* DESC: Count:
+*               - page visit - (page not refreshed)
+*               - website total visits - including page refresh
+*               - display response messages in dev tools/console
 * @since 1.0.0
 */
 var StrCPVisitsAjaxCount = function ($) {
