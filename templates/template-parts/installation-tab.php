@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="StrCPVisits-light-tab-installation">
 
     <article class="StrCPVisits-settings-page-text-box">
-        <h2><?php esc_html_e("INSTALLATION", "page-visits-counter-lite"); ?> - <span style="color: red;"><?php esc_html_e("ATTENTION", "page-visits-counter-lite"); ?> !<span></h2>
+        <h2><?php esc_html_e("INSTALLATION", "page-visits-counter-lite"); ?> - <span class="StrCPVisits-warning"><?php esc_html_e("ATTENTION", "page-visits-counter-lite"); ?> !<span></h2>
         <p><?php esc_html_e("After the plugin is installed and activated, you need to flush the cache memory for all pages and delete minified javascript (JS) and styling (CSS) files.", "page-visits-counter-lite"); ?></p>
         <br>
         <p>( <?php esc_html_e("Minified JS and CSS files will be recreated automatically by their own plugin/software.", "page-visits-counter-lite"); ?>)</p>

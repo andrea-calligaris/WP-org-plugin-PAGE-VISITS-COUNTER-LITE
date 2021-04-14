@@ -14,8 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 <div class="StrCPVisits-light-tab-documentation">
-    <p><strong><?php esc_html_e("This plugin will count visits on each page and display a page list report for each page in the wp-admin dashboard.", "page-visits-counter-lite"); ?></strong></p>
-
+    <!-- EXPLANATION -->
+    <p><strong><?php esc_html_e("This plugin is going to display the number of visits for each page in the:", "page-visits-counter-lite"); ?></strong></p>
+    <ul>
+        <li><?php esc_html_e("Admin dashboard", "page-visits-counter-lite"); ?></li>
+        <li><?php esc_html_e("Browser developer-tools/console tab - ( HIDDEN COUNTERS )", "page-visits-counter-lite"); ?></li>
+        <li><?php esc_html_e("Website/page frontend - ( OPTIONAL )", "page-visits-counter-lite"); ?></li>
+    </ul>
+    <br>
+    <!-- ACCORDION MENU -->
     <div class="StrCPVisits_accordion_menu" data-stracc-close-other-options="true">
 
 
@@ -100,6 +107,19 @@ if ( ! defined( 'ABSPATH' ) ) {
         <section class="StrCPVisits_accordion_btn"><h2><?php esc_html_e("ON DELETE of Page, Post, Product...", "page-visits-counter-lite"); ?></h2></section>
         <div class="StrCPVisits_accordion_panel">
             <p><?php esc_html_e("If you delete an existing page, post, product, archive, etc. then the page will remain intact in the page visits report including its number of visits.", "page-visits-counter-lite"); ?></p>
+            <br>
+        </div>
+
+
+        <section class="StrCPVisits_accordion_btn"><h2><?php esc_html_e("VISITS-COUNTER ON THE WEBSITE FRONTEND", "page-visits-counter-lite"); ?></h2></section>
+        <div class="StrCPVisits_accordion_panel">
+            <p><?php esc_html_e("There are two counter types:", "page-visits-counter-lite"); ?></p>
+            <ul>
+                <li><?php esc_html_e("Website counter", "page-visits-counter-lite"); ?></li>
+                <li><?php esc_html_e("Page counter ( Not counting page refresh. )", "page-visits-counter-lite"); ?></li>
+            </ul>
+            <p><?php esc_html_e("You can add one or both counter types on your website or page frontend.", "page-visits-counter-lite"); ?></p>
+            <p><?php esc_html_e("Instructions on how to add counter/s to your website are in the plugin settings page under the tab named counter.", "page-visits-counter-lite"); ?></p>
             <br>
         </div>
 

@@ -1,32 +1,4 @@
 /**
- * GLOBAL VARIABLES
- */
-/**
- * BUTTONS
- * INFO: WP buttons styles are used by default
- */
-/**
- * TAB MENU VARIABLES
- */
-/**
- * ACCORDION MENU VARIABLES
- */
-/**
- * SPINNER VARIABLES
- */
-/**
- * DASHBOARD VARIABLES
- */
-/**
- * SETTINGS PAGE VARIABLES
- */
-/**
- * EXTENDS
- */
-/**
- * MIXINS
- */
-/**
  * BASE/GLOBAL CLASSES
  */
 .clearfix {
@@ -42,6 +14,10 @@
 }
 
 .StrCPVisits-error-msg {
+  color: red;
+}
+
+.StrCPVisits-warning {
   color: red;
 }
 
@@ -1227,6 +1203,7 @@ a.StrCPVisits_db_video_tutorial_btn_link:focus {
   -ms-flex-align: center;
   align-items: center;
   min-height: 60px;
+  padding-bottom: 40px;
 }
 
 .StrCPVisits-light-tab-settings .StrCPVisits-settings-form-response-box-individual {
@@ -1257,6 +1234,145 @@ a.StrCPVisits_db_video_tutorial_btn_link:focus {
 
 .StrCPVisits-light-tab-settings .StrCPVisits-count-page-refresh {
   display: none;
+}
+
+/*
+ * COUNTER TAB CONTENT
+ */
+.StrCPVisits-light-tab-counter .StrCPVisits-light-tab-counter-description {
+  font-weight: bold;
+  color: #5a5a5a;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-light-tab-counter-info-section {
+  display: inline-block;
+  padding: 0 20px 20px;
+  background-color: #ececec;
+  color: #555555;
+}
+
+.StrCPVisits-light-tab-counter .dashicons-format-video {
+  padding-right: 20px;
+  font-size: 32px;
+  margin-top: -5px;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-light-tab-counter-video-expl-link {
+  font-size: 18px;
+}
+
+.StrCPVisits-light-tab-counter ul.StrCPVisits-frontend-counter-code-list li {
+  list-style: none;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-frontend-counter-code-description {
+  padding: 20px;
+  background-color: #ededed;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-counter-tab-content-col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  min-height: 60px;
+  padding-bottom: 40px;
+}
+
+.StrCPVisits-light-tab-counter .strcpv-page-counter-example {
+  border: 1px dashed #c2c2c2;
+  -webkit-box-shadow: 0 3px 15px -10px grey;
+  box-shadow: 0 3px 15px -10px grey;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-counter-code-box {
+  padding: 20px;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-counter-code-box h4 {
+  color: #555555;
+  font-family: serif;
+  letter-spacing: 0.9px;
+  font-size: 16px;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-frontend-counter-code-select-position-text {
+  color: #5a5a5a;
+}
+
+.StrCPVisits-light-tab-counter .StrCPVisits-two-col code {
+  display: block;
+  width: 300px;
+  padding: 12px;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+.StrCPVisits-light-tab-counter .strcpv-js-page-counter-example-pos {
+  text-align: left;
+}
+
+.StrCPVisits-light-tab-counter .strcpv-page-counter-example-base {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.StrCPVisits-light-tab-counter .strcpv-page-counter-example-base i {
+  color: #555555;
+  margin: 1px 5px 0 0;
+}
+
+.StrCPVisits-light-tab-counter .strcpv-page-counter-example-light p {
+  display: inline-block !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 5px !important;
+  padding-right: 1px !important;
+  letter-spacing: 5px !important;
+  background-color: #d8d8d8 !important;
+  color: #333333 !important;
+  -webkit-border-radius: 4px !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+}
+
+.StrCPVisits-light-tab-counter .strcpv-page-counter-example-dark p {
+  display: inline-block !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 5px !important;
+  padding-right: 1px !important;
+  letter-spacing: 5px !important;
+  background-color: black !important;
+  color: white !important;
+  -webkit-border-radius: 4px !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+}
+
+@media (max-width: 1800px) {
+  .StrCPVisits-light-tab-counter .StrCPVisits-counter-tab-content-col {
+    max-width: 900px !important;
+    margin: 0 auto;
+  }
+  .StrCPVisits-light-tab-counter .StrCPVisits-counter-code-box {
+    padding: 20px 40px !important;
+  }
 }
 
 /*

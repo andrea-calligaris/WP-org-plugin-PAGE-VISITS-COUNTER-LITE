@@ -30,6 +30,7 @@ function strongeticSubpageVisitsCounterLight( $base_controler_data ){
 
             <ul>
               <li class="StrCPVisits-form-tab-active"><?php esc_html_e("Settings", "page-visits-counter-lite"); ?></li>
+               <li><?php esc_html_e("Counter", "page-visits-counter-lite"); ?></li>
               <li><?php esc_html_e("Documentation", "page-visits-counter-lite"); ?></li>
               <li><?php esc_html_e("Screenshot", "page-visits-counter-lite"); ?></li>
               <li><?php esc_html_e("Installation", "page-visits-counter-lite"); ?></li>
@@ -43,6 +44,13 @@ function strongeticSubpageVisitsCounterLight( $base_controler_data ){
               <br>
               <!-- INCLUDE SETTINGS TAB CONTENT -->
               <?php require_once( dirname(__FILE__) . '/template-parts/settings-tab.php' ); ?>
+            </div>
+
+            <!-- COUNTER -->
+            <div class="StrCPVisits-form-tab">
+              <br>
+              <!-- INCLUDE COUNTER TAB CONTENT -->
+              <?php require_once( dirname(__FILE__) . '/template-parts/counter-tab.php' ); ?>
             </div>
 
             <!-- DOCUMENTATION -->

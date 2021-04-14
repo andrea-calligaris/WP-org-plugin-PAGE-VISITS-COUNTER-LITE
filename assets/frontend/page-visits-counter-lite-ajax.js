@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
 * AJAX
@@ -9,6 +9,10 @@
 * @since 1.0.0
 */
 var StrCPVisitsAjaxCount = function ($) {
+
+    var zeroPad = function zeroPad(num, places) {
+        return String(num).padStart(places, '0');
+    };
 
     // DISPLAY STATUSES
     console.log("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
@@ -61,12 +65,18 @@ var StrCPVisitsAjaxCount = function ($) {
         // DISPLAY TOTAL PAGE VISITS - on refresh
         if (typeof data.page_visits_on_refresh != "undefined") {
             console.log(STR_CPVISITS.text_total_page_visits + ': ' + data.page_visits_on_refresh);
+            updatePageCounter(data.page_visits.nr);
         }
 
         // DISPLAY TOTAL PAGE VISITS
-        if (typeof data.page_visits != "undefined") {
+        if (typeof data.page_visits != "undefined" && data.page_visits != null) {
             if (typeof data.page_visits.nr != "undefined") {
-                console.log(STR_CPVISITS.text_total_page_visits + ": " + data.page_visits.nr);
+                if (data.page_visits.nr == null) {
+                    console.log(STR_CPVISITS.text_total_page_visits + ": N/A");
+                } else {
+                    console.log(STR_CPVISITS.text_total_page_visits + ": " + data.page_visits.nr);
+                    updatePageCounter(data.page_visits.nr);
+                }
             }
         }
 
@@ -74,8 +84,19 @@ var StrCPVisitsAjaxCount = function ($) {
         if (typeof data.total_visits != "undefined") {
             if (typeof data.total_visits.nr != "undefined") {
                 console.log(STR_CPVISITS.text_total_website_visits + ": " + data.total_visits.nr);
+                updateWebsiteCounter(data.total_visits.nr);
             }
         }
         console.log("===================================================================");
+    }
+
+    function updatePageCounter(nr) {
+        nr = zeroPad(nr, 5);
+        $('#strcpv-page-counter').html("<p>" + nr + "</p>");
+    }
+
+    function updateWebsiteCounter(nr) {
+        nr = zeroPad(nr, 5);
+        $('#strcpv-website-counter').html("<p>" + nr + "</p>");
     }
 }(jQuery);

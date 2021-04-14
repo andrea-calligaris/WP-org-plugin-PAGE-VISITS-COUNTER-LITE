@@ -42,6 +42,27 @@ class TotalVisits extends Options {
 
 
 
+
+        /**
+        * $page_name - sanitize
+        * INFO: No need for hard core security because it is only going to be compared
+        *       with asoc-array keys retrieved from the DB option.
+        * VALIDATION: page_name can be anything.
+        *             There is no point to restriciting the max nr of characters as it is
+        *             only going to be compared with asoc-array keys retrieved from the DB option.
+        * @since 1.0.0
+        */
+        if ( isset( $_POST['page_data']['title'] )) {
+            $page_name = sanitize_text_field( $_POST['page_data']['title'] );
+        } else {
+            $final_response['msg'] = esc_html__("Error - title prop. missing!", "page-visits-counter-lite");
+            wp_send_json_success( $final_response ); // Abort
+        }
+
+
+
+
+
         /**
         * ABORT BY USER TYPE
         * PROBLEM: User can have custom admin roles in use which visits we shouldn't count.
@@ -59,7 +80,15 @@ class TotalVisits extends Options {
                  $user_role != "contributor" &&     // allow contributor
                  $user_role != "pending_user") {    // allow pending_user
 
+                     // SET RESPONSES
                      $final_response['msg'] = esc_html__("Logged in with a not counting user role!", "page-visits-counter-lite");
+                     // Get total visits response
+                     $final_response['total_visits']['update'] = false;
+                     $final_response['total_visits']['nr'] = get_option( STRCPV_OPT_NAME['total_visits'] );
+                     // Get total page visits response
+                     $final_response['page_visits'] = false;
+                     $final_response['page_visits']['nr'] = $this->getVisitsNrByPageName( $page_name );
+
                      wp_send_json_success( $final_response ); // Abort
             }
         }
@@ -116,24 +145,6 @@ class TotalVisits extends Options {
             }
         } else {
             $final_response['msg'] = esc_html__("Error - abort prop. missing!", "page-visits-counter-lite");
-            wp_send_json_success( $final_response ); // Abort
-        }
-
-
-
-        /**
-        * $page_name - sanitize
-        * INFO: No need for hard core security because it is only going to be compared
-        *       with asoc-array keys retrieved from the DB option.
-        * VALIDATION: page_name can be anything.
-        *             There is no point to restriciting the max nr of characters as it is
-        *             only going to be compared with asoc-array keys retrieved from the DB option.
-        * @since 1.0.0
-        */
-        if ( isset( $_POST['page_data']['title'] )) {
-            $page_name = sanitize_text_field( $_POST['page_data']['title'] );
-        } else {
-            $final_response['msg'] = esc_html__("Error - title prop. missing!", "page-visits-counter-lite");
             wp_send_json_success( $final_response ); // Abort
         }
 

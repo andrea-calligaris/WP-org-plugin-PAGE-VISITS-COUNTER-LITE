@@ -2214,6 +2214,128 @@ var StrCPV = function () {
     }();
 
     /**
+    * COUNTER TAB
+    * DESC: Select frontend counter position in parrent el. ( LEFT or CENTER or RIGHT )
+    * @since 1.0.6
+    */
+    var CounterTab = function () {
+
+        // PROPERTIES
+        var page_select_position = $('#StrCPVisits-page-counter-select-position');
+        var website_select_position = $('#StrCPVisits-website-counter-select-position');
+        var examples = void 0; // examples to be changes
+        var codes = void 0; // codes that are going to be rewriten ( position: left, center, right )
+
+
+        /* ---- LISTENERS ---- */
+
+        //
+        page_select_position.change(function () {
+            changePosition($(this));
+        });
+
+        website_select_position.change(function () {
+            changePosition($(this));
+        });
+
+        /**
+        * CHANGE POSITION
+        * DESC:
+        * @param - HTML element -> page-counter select el. or website-counter select el.
+        * @since 1.0.6
+        */
+        function changePosition(counter_type) {
+
+            setProperties(counter_type);
+
+            var selected_option = counter_type.val();
+            if (selected_option === "left") {
+                // LEFT
+                examples.css('text-align', 'left');
+                rewriteCodePosition('left');
+            } else if (selected_option === "center") {
+                // CENTER
+                examples.css('text-align', 'center');
+                rewriteCodePosition('center');
+            } else if (selected_option === "right") {
+                // RIGHT
+                examples.css('text-align', 'right');
+                rewriteCodePosition('right');
+            }
+        }
+
+        function setProperties(counter_type) {
+            var parent_li_el = counter_type.closest('.StrCPVisits-frontend-counter-code');
+            examples = parent_li_el.find('.strcpv-js-page-counter-example-pos');
+            codes = parent_li_el.find('.strcpv-frontend-counter-position-rewrite');
+        }
+
+        function rewriteCodePosition(position) {
+
+            var remaining_positions_arr = filterOutRemainingPositions(position);
+
+            // Loop through code samples
+            for (var i = 0; i < codes.length; i++) {
+                var code = codes.eq(i);
+                // Get code sample text
+                var code_text = code.html();
+                // Change <br> tags to "bbbrrr" - so it can be reverted later
+                code_text = code_text.replace(new RegExp("<br>", "g"), 'bbbrrr');
+                // Strip all HTML tags
+                code_text = StrCPV.stripHTMLtags(code_text);
+                // Rewrite sample code position with given position
+                var new_code_text = replacePositionStringInCodeSample(code_text, remaining_positions_arr, position);
+                // Revert <br> tags
+                new_code_text = new_code_text.replace(new RegExp("bbbrrr", "g"), '<br>');
+                // Display new code sample
+                code.html(new_code_text);
+            }
+        }
+
+        /**
+        * FILTER OUT REMAINING POSITIONS
+        * DESC: Filter out given position and return an array of remaining positions
+        * @param type-string  ("left" || "center" || "right")
+        * @since 1.0.6
+        */
+        function filterOutRemainingPositions(position) {
+            var positions_arr = ["left", "center", "right"];
+            var filtered_positions_arr = positions_arr.filter(function (value, index, arr) {
+                return value != position;
+            });
+            return filtered_positions_arr;
+        }
+
+        /**
+        * REPLACE POSITION STRING IN CODE SAMPLE
+        * DESC: Replace the first occurrence of position with a new position
+        * EXAMPLE: "text-align: left;" replace with "text-align: center;" or "text-align: right;"
+        *
+        * @param1  type->string  ( code sample text )
+        * @param2  type->array   ( remaining positions that can be found in code sample text and it should be replaced )
+        * @param3  type->string  ( new-given position )
+        * @since 1.0.0
+        */
+        function replacePositionStringInCodeSample(code_text, remaining_positions_arr, position) {
+
+            var new_code_sample_text = void 0;
+
+            // Loop through remaining two positions array
+            for (var i = 0; i < remaining_positions_arr.length; i++) {
+                var remaining_position = remaining_positions_arr[i]; // two of these three values: "left", "center", "right"
+                var search_substring = "text-align: " + remaining_position + ";";
+                var replace_substring = "text-align: " + position + ";";
+                // If code has substring
+                if (code_text.includes(search_substring)) {
+                    // Replace the first occurrence of position with a new position
+                    new_code_sample_text = code_text.replace(search_substring, replace_substring);
+                }
+            }
+            return new_code_sample_text;
+        }
+    }();
+
+    /**
     * LIGHT TABS MENU - COMPONENT
     * @since 1.0.0
     */

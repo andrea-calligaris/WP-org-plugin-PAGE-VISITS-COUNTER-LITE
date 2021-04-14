@@ -4,7 +4,7 @@ Donate link: https://www.fiverr.com/denis555/gladly-accept-5usd-tip-for-my-good-
 Tags: page counter, post counter, page visits, post visits, wordpress post view, wordpress page view, wordpress visit stats, page visits report, console counter, count without refresh, count without reload, developer tools counter
 Requires at least: 5.0
 Tested up to: 5.7.0
-Stable tag: 1.0.5.
+Stable tag: 1.1.0.
 Requires PHP: 5.6.40
 WC requires at least: 4.9.2
 WC tested up to: 5.0.0
@@ -18,13 +18,25 @@ Display number of visits for each page in admin dashboard and browser developer-
 
 This plugin is going to display the number of visits for each page in the:
 
-* admin dashboard
-* browser developer-tools/console tab
+* Admin dashboard
+* Browser developer-tools/console tab - (HIDDEN COUNTERS)
+* Website/page frontend - (OPTIONAL)
 
-( It does not count page refresh as a new visit. )
+You can add and display counters on the frontend of your website:
 
+* total page-visits-counter and/or
+* total website-visits-counter
+
+
+( Page-visits-counter does not count page refresh as a new visit while Website-visits-counter counts everything. )
+
+<h3> Hidden page counter + admin page reports </h3>
 
 https://www.youtube.com/watch?v=wxWiFin8NwE
+
+<h3> How to display hidden counter on a website frontend? </h3>
+
+https://www.youtube.com/watch?v=LWKxYhtYH3o
 
 
 The purpose of this plugin is to supplement the report of actual visits to the pages of the website that cannot be recorded through advanced analytical tools. Advanced analytical tools require the consent of a visitor before the visit is recorded.
@@ -103,7 +115,20 @@ After a new visit, the new page name will appear in the page visits report and t
 
 
 <h3> ON DELETE of Page, Post, Product... </h3>
+
 If you delete an existing page, post, product, archive, etc. then the page will remain intact in the page visits report including its number of visits.
+
+
+<h3> VISITS-COUNTER ON THE WEBSITE FRONTEND </h3>
+
+There are two counter types:
+
+* Website counter
+* Page counter ( Not counting page refresh. )
+
+You can add one or both counter types on your website or page frontend.
+
+Instructions on how to add counter/s to your website are in the plugin settings page under the tab named counter.
 
 
 <h3> FEATURES </h3>
@@ -143,10 +168,12 @@ Admin dashboard widget has four wp-hooks:
 1. VISITS BY PAGE NAME - Dashboard widget
 2. SETTINGS AND DOCUMENTATION PAGE
 3. DEVELOPER-TOOLS/CONSOLE - Page visits
+4. DISPLAY COUNTER ON WEBSITE FRONTEND - code samples
 
 * /assets/screenshot-1.jpg
 * /assets/screenshot-2.jpg
 * /assets/screenshot-3.jpg
+* /assets/screenshot-4.jpg
 
 
 
@@ -190,9 +217,28 @@ No, there is no such option.
 Yes, you will find that option (checkbox) in the plugin settings area under the settings tab.
 Just check the option called "Do not delete plugin data on plugin delete/uninstall" and click on the Save button.
 
-= Can I display a number of page visits on the page frontend? =
+= Can I display a number of page visits on the website/page frontend? =
 
-No, not for now. Page visits report is for admin's eyes only.
+Yes, you can add and display one or both counters on the frontend of your website:
+
+* Page-Visits-Counter - does not count page refresh
+* Website-Visits-Counter
+
+= Why frontend visits-counter displays N/A? =
+
+* N/A stands for "Not Available"
+* It is a default counter state - counter does not use zero
+
+A not-counting page is going to display N/A.
+
+Also, any other page is going to display N/A until it is visited by either:
+
+* signed-out user
+* signed-in user with a counting user role
+
+( For more info about "Counting" and "Not Counting" read in the plugin documentation. )
+
+You can find explanation in the plugin settings page under counter tab.
 
 = Does it set cookies into the user browser?  =
 
@@ -255,6 +301,16 @@ That visit should be recorded and you should see it in the plugin dashboard widg
 == Changelog ==
 
 
+= 1.1.0 - 14.04.2021 =
+
+Upgrade:
+
+Add HTML code and display counter on the website frontend:
+* Current page visits counter
+* Website visits counter
+
+Dev Tools / console - see the visits number even if you are logged in with a user role that doesn't count...
+
 = 1.0.5 - 06.04.2021 =
 
 Switching between hidden and visible list when search menu expanded is upgraded
@@ -288,9 +344,19 @@ Initial release...
 == Upgrade Notice ==
 
 
+= 1.1.0 - 14.04.2021 =
+
+Upgrade:
+
+Add HTML code and display counter on the website frontend:
+* Current page visits counter
+* Website visits counter
+
+Dev Tools / console - see the visits number even if you are logged in with a user role that doesn't count...
+
 = 1.0.5 - 06.04.2021 =
 
-Switching between hidden and visible list when search menu expanded is upgraded
+Upgraded - switching between hidden and visible list when search menu expanded
 
 = 1.0.4 - 31.03.2021 =
 

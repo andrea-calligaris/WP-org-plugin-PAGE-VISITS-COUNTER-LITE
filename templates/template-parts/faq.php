@@ -74,9 +74,31 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
 
 
-        <section class="StrCPVisits_accordion_btn"><h3><?php esc_html_e("Can I display a number of page visits on the page frontend?", "page-visits-counter-lite"); ?></h3></section>
+        <section class="StrCPVisits_accordion_btn"><h3><?php esc_html_e("Can I display a number of page visits on the website/page frontend?", "page-visits-counter-lite"); ?></h3></section>
         <div class="StrCPVisits_accordion_panel">
-            <p><?php esc_html_e("No, not for now. Page visits report is for admin's eyes only.", "page-visits-counter-lite"); ?></p>
+            <p><?php esc_html_e("Yes, you can add and display one or both counters on the frontend of your website:", "page-visits-counter-lite"); ?></p>
+            <ul>
+                <li><?php esc_html_e("Page-Visits-Counter - does not count page refresh", "page-visits-counter-lite"); ?></li>
+                <li><?php esc_html_e("Website-Visits-Counter", "page-visits-counter-lite"); ?></li>
+            </ul>
+            <p><?php esc_html_e("You can find explanation in the plugin settings page under counter tab.", "page-visits-counter-lite"); ?></p>
+            <br>
+        </div>
+
+
+        <section class="StrCPVisits_accordion_btn"><h3><?php esc_html_e("Why frontend visits-counter displays N/A?", "page-visits-counter-lite"); ?></h3></section>
+        <div class="StrCPVisits_accordion_panel">
+            <ul>
+                <li><?php esc_html_e('N/A stands for "Not Available"', "page-visits-counter-lite"); ?></li>
+                <li><?php esc_html_e("N/A is a default counter status - counter does not start from zero - zero is set on reset", "page-visits-counter-lite"); ?></li>
+            </ul>
+            <p><?php esc_html_e("A not-counting page is going to display N/A.", "page-visits-counter-lite"); ?></p>
+            <p><?php esc_html_e("Also, any other page is going to display N/A until it is visited by either: ", "page-visits-counter-lite"); ?></p>
+            <ul>
+                <li><?php esc_html_e("signed-out user", "page-visits-counter-lite"); ?></li>
+                <li><?php esc_html_e("signed-in user with a counting user role", "page-visits-counter-lite"); ?></li>
+            </ul>
+            <p>( <?php esc_html_e('For more info about "Counting" and "Not Counting" read in the plugin documentation.', "page-visits-counter-lite"); ?> )</p>
             <br>
         </div>
 
