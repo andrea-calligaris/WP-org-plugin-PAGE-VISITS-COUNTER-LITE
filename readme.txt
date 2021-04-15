@@ -4,7 +4,7 @@ Donate link: https://www.fiverr.com/denis555/gladly-accept-5usd-tip-for-my-good-
 Tags: page counter, post counter, page visits, post visits, wordpress post view, wordpress page view, wordpress visit stats, page visits report, console counter, count without refresh, count without reload, developer tools counter
 Requires at least: 5.0
 Tested up to: 5.7.0
-Stable tag: 1.1.0.
+Stable tag: 1.1.1.
 Requires PHP: 5.6.40
 WC requires at least: 4.9.2
 WC tested up to: 5.0.0
@@ -301,6 +301,15 @@ That visit should be recorded and you should see it in the plugin dashboard widg
 == Changelog ==
 
 
+= 1.1.1 - 15.04.2021 =
+
+Upgrade:
+
+"Not counting this page" indicator in hidden counter when logged in with not counting user role.
+
+Bug fixed - getting the page report data when page report deleted.
+
+
 = 1.1.0 - 14.04.2021 =
 
 Upgrade:
@@ -343,6 +352,14 @@ Initial release...
 
 == Upgrade Notice ==
 
+
+= 1.1.1 - 15.04.2021 =
+
+Upgrade:
+
+"Not counting this page" indicator in hidden counter when logged in with not counting user role.
+
+Bug fixed - getting the page report data when page report deleted.
 
 = 1.1.0 - 14.04.2021 =
 

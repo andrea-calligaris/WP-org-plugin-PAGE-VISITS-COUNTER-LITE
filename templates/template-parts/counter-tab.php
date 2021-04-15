@@ -2,7 +2,7 @@
 /**
 * SETTINGS - SETTINGS TAB
 * DESC: Displays settings tab html content.
-* @since 1.0.6
+* @since 1.0.0
 */
 
 //Exit if accessed directly.
@@ -66,7 +66,7 @@ $StrCpv_counter_default_style_light = " display: inline-block !important;<br>
     <br><br>
 
 
-    <!-- TITLE -->
+    <!-- WARNING-TITLE -->
     <h3 class="StrCPVisits-warning"><?php esc_html_e("WARNING", "page-visits-counter-lite"); ?></h3>
     <p><?php esc_html_e("If you are placing the code into dynamic website element like header, footer or sidebar then you can add only one page-visits-counter and one website-visits-counter on your website.", "page-visits-counter-lite"); ?></p>
     <i><?php esc_html_e("( A dynamic element is an element displayed across the web pages of your website. )", "page-visits-counter-lite"); ?></i>

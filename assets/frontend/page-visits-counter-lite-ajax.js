@@ -62,16 +62,21 @@ var StrCPVisitsAjaxCount = function ($) {
             console.log(STR_CPVISITS.text_message + ": " + data.msg);
         }
 
+        // DISPLAY NOT COUNTING MESSAGE - only when logged in with not counting user role
+        if (typeof data.msg_not_counting_the_page != "undefined") {
+            console.log("-------> " + data.msg_not_counting_the_page);
+        }
+
         // DISPLAY TOTAL PAGE VISITS - on refresh
-        if (typeof data.page_visits_on_refresh != "undefined") {
+        if (typeof data.page_visits_on_refresh != "undefined" && data.page_visits_on_refresh != null && data.page_visits_on_refresh != "") {
             console.log(STR_CPVISITS.text_total_page_visits + ': ' + data.page_visits_on_refresh);
-            updatePageCounter(data.page_visits.nr);
+            updatePageCounter(data.page_visits_on_refresh);
         }
 
         // DISPLAY TOTAL PAGE VISITS
-        if (typeof data.page_visits != "undefined" && data.page_visits != null) {
+        if (typeof data.page_visits != "undefined" && data.page_visits != null && data.page_visits != "") {
             if (typeof data.page_visits.nr != "undefined") {
-                if (data.page_visits.nr == null) {
+                if (data.page_visits.nr == null || data.page_visits.nr == "") {
                     console.log(STR_CPVISITS.text_total_page_visits + ": N/A");
                 } else {
                     console.log(STR_CPVISITS.text_total_page_visits + ": " + data.page_visits.nr);

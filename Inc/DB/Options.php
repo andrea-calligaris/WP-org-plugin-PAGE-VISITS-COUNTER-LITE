@@ -69,13 +69,19 @@ class Options {
 
     /**
     * GET VISITS NR BY PAGE NAME
-    * DESC: Retrieve serialized data from option visits_by_page and unserialize them.
-    * RETURNS: An array - ['page-name1' => vistis_nr1, 'page-name2'=>visits_nr2, ... ]
+    * DESC: Retrieve page visits nr from visits_by_page option.
+    * RETURNS: Nr of visits || NULL
     * @since 1.0.0
+    * Last update:  1.1.0 ( ADDED - if array key exist and if not - return null )
     */
     public function getVisitsNrByPageName( $page_name ){
+        // Retrieve serialized data from option visits_by_page and unserialize them.
         $page_visits_arr = $this->getVisitsByPageData();
-        return $page_visits_arr[ $page_name ];
+        if ( array_key_exists( $page_name, $page_visits_arr ) ){
+            return $page_visits_arr[ $page_name ];
+        }
+        // Page name doesn't exist as key in array
+        return null;
     }
 
 

@@ -80,14 +80,25 @@ class TotalVisits extends Options {
                  $user_role != "contributor" &&     // allow contributor
                  $user_role != "pending_user") {    // allow pending_user
 
-                     // SET RESPONSES
+
+
+                     // SET RESPONSES:
+
+                     // Logged in with not counting user role
                      $final_response['msg'] = esc_html__("Logged in with a not counting user role!", "page-visits-counter-lite");
+                     // Not counting this page response
+                     if ( isset( $_POST['page_data']['abort'] )) {
+                         if ( $_POST['page_data']['abort'] === "true" ) {
+                             // Set response
+                             $final_response['msg_not_counting_the_page'] = esc_html__("Not counting this page!", "page-visits-counter-lite");
+                         }
+                     }
                      // Get total visits response
                      $final_response['total_visits']['update'] = false;
-                     $final_response['total_visits']['nr'] = get_option( STRCPV_OPT_NAME['total_visits'] );
+                     $final_response['total_visits']['nr'] = esc_html( get_option( STRCPV_OPT_NAME['total_visits'] ) );
                      // Get total page visits response
                      $final_response['page_visits'] = false;
-                     $final_response['page_visits']['nr'] = $this->getVisitsNrByPageName( $page_name );
+                     $final_response['page_visits']['nr'] = esc_html( $this->getVisitsNrByPageName( $page_name ) );
 
                      wp_send_json_success( $final_response ); // Abort
             }
