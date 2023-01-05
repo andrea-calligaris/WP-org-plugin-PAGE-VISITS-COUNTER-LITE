@@ -276,17 +276,24 @@ class Options {
         } else {
 
             // THERE IS TRANSIENT
-            $last_page_name = $page_refreshed_data_arr[$ip_address];
-
-            // Check if page is refreshed
-            if ( $last_page_name === $current_page_name) {
-                // Page is refreshed
-                return true; // Abort
-
-            } else {
-
-                // Another page loaded - update transient page name
+            if( ! array_key_exists($ip_address, $page_refreshed_data_arr ) ) {
+                // it's a new IP
                 $page_refreshed_data_arr[$ip_address] = $current_page_name;
+            }
+            else {
+                // IP already existing
+                $last_page_name = $page_refreshed_data_arr[$ip_address];
+
+                // Check if page is refreshed
+                if ( $last_page_name === $current_page_name) {
+                    // Page is refreshed
+                    return true; // Abort
+
+                } else {
+
+                    // Another page loaded - update transient page name
+                    $page_refreshed_data_arr[$ip_address] = $current_page_name;
+                }
             }
 
         }
